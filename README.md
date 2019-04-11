@@ -1,2 +1,2 @@
-# CuChange
+# Конвертер валют
 Итоговый проект Sam_Solutions
