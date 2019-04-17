@@ -1,43 +1,17 @@
 package com.company;
+import java.util.Queue;
 
 public class Manager {
-    Command changeBaseCurrency;
-    Command changeOptionalCurrency;
-    Command convert;
-    Command inputValue;
-    Command swap;
-    Command exit;
+    private Queue<ICommand> Slot;
 
-    public Manager(Command changeBaseCurrency, Command changeOptionalCurrency, Command convert, Command inputValue, Command swap, Command exit){
-        this.changeBaseCurrency = changeBaseCurrency;
-        this.changeOptionalCurrency = changeOptionalCurrency;
-        this.convert = convert;
-        this.inputValue = inputValue;
-        this.swap = swap;
-        this.exit = exit;
+    //Invoker
+
+    public Manager() {}
+    public void setCommand(ICommand object){
+        Slot.add(object);
     }
 
-    public void changeBaseCurrency(){
-        changeBaseCurrency.execute();
-    }
-
-    public void changeOptionalCurrency(){
-        changeOptionalCurrency.execute();
-    }
-
-    public void convert(){
-        convert.execute();
-    }
-
-    public void inputValue(){
-        inputValue.execute();
-    }
-
-    public void swap(){
-        swap.execute();
-    }
-
-    public void exit(){
-        exit.execute();
+    public void execute(){
+        Slot.element().execute();
     }
 }
